@@ -19,11 +19,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(SpawnFish());
     }
 
