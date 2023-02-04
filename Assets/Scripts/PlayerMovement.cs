@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float dashForce = 10f;
     
     Rigidbody2D rb2d;
 
@@ -23,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     {
         ProcessInput();
         RotateSprite();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb2d.AddForce(movementVector * dashForce, ForceMode2D.Impulse);
+        }
     }
 
     void FixedUpdate() 
@@ -40,19 +46,19 @@ public class PlayerMovement : MonoBehaviour
     void RotateSprite()
     {
         //if moving right and looking left
-        if(horizontalInput >= 0 && Mathf.Sign(transform.localScale.y) < 0)
+        if(horizontalInput >= 0 && Mathf.Sign(transform.localScale.x) > 0)
         {
             Vector3 currentScale;
             currentScale = transform.localScale;
-            currentScale.y *= -1;
+            currentScale.x *= -1;
             transform.localScale = currentScale;
         }
         //if moving left and looking right
-        else if(horizontalInput < 0 && Mathf.Sign(transform.localScale.y) > 0)
+        else if(horizontalInput < 0 && Mathf.Sign(transform.localScale.x) < 0)
         {
            Vector3 currentScale;
             currentScale = transform.localScale;
-            currentScale.y *= -1;
+            currentScale.x *= -1;
             transform.localScale = currentScale;
         }
     }
