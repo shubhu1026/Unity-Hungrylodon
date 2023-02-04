@@ -7,11 +7,25 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameActive = false;
     public int spawnedFishCount = 0;
+    public float Score;
+    public static GameManager gameInstance;
 
     //getter and setter
     public int SpawnedFishCount {get{return spawnedFishCount;} set{spawnedFishCount = value;}}
 
     int fishCount = 0;
+
+    void Awake()
+    {
+        if(gameInstance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        gameInstance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {

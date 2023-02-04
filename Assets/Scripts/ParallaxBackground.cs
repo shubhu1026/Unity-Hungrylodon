@@ -8,9 +8,11 @@ public class ParallaxBackground : MonoBehaviour
     [SerializeField] SpriteRenderer[] backgrounds;
     [SerializeField] Vector2 speed = Vector2.right;
     Vector2[] offsets;
+
     private void Awake() {
         offsets = new Vector2[backgrounds.Length];
     }
+    
     void Update()
     {
         for (int i = 0; i < backgrounds.Length; i++)

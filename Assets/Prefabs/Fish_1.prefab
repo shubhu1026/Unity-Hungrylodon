@@ -193,4 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d71e00e3d5654389eb391fdb28b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseFishSize: 30
+  basePointValue: 20
   moveSpeed: 10

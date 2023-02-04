@@ -2,12 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishMovement : MonoBehaviour
+public class OtherFish : MonoBehaviour
 {
+    //fish size can be multiples of 10
+    [SerializeField] float baseFishSize = 10f;
+    [SerializeField] float basePointValue = 10f;
     [SerializeField] float moveSpeed = 10f;
+
+    float fishSize;
+    float pointValue;
+    public float PointValue {get {return pointValue;}}
+    public float FishSize {get {return fishSize;}}
+
     bool shouldMoveLeft = false;
-    // Start is called before the first frame update
+
     void Start()
+    {    
+        GetMoveDirection();
+        SetFishScale();
+        SetPointValue();
+    }
+
+    void SetFishScale()
+    {
+        //Add randomness to fish scale
+        if(Random.value < 0.5)
+        {
+            fishSize = baseFishSize + Random.Range(0f, 1f) * 10;
+            float newScale = transform.localScale.y + fishSize/100;
+            transform.localScale = new Vector3(newScale, newScale, newScale);
+        }
+        else
+        {
+            fishSize = baseFishSize - Random.Range(0f, 1f) * 10;
+            float newScale = transform.localScale.y + fishSize/100;
+            transform.localScale = new Vector3(newScale, newScale, newScale);
+        }
+    }
+
+    void SetPointValue()
+    {
+        pointValue = basePointValue + fishSize; 
+    }
+
+    void GetMoveDirection()
     {
         if(transform.position.x > 0)
         {
