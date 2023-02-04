@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInput();
-        RotateSprite();
+        CheckSpriteRotation();
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -43,23 +43,25 @@ public class PlayerMovement : MonoBehaviour
         movementVector = new Vector2(horizontalInput, verticalInput);
     }
 
-    void RotateSprite()
+    void CheckSpriteRotation()
     {
         //if moving right and looking left
         if(horizontalInput >= 0 && Mathf.Sign(transform.localScale.x) > 0)
         {
-            Vector3 currentScale;
-            currentScale = transform.localScale;
-            currentScale.x *= -1;
-            transform.localScale = currentScale;
+           RotateSprite();
         }
         //if moving left and looking right
         else if(horizontalInput < 0 && Mathf.Sign(transform.localScale.x) < 0)
         {
-           Vector3 currentScale;
-            currentScale = transform.localScale;
-            currentScale.x *= -1;
-            transform.localScale = currentScale;
+            RotateSprite();
         }
+    }
+
+    void RotateSprite()
+    {
+        Vector3 currentScale;
+        currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
     }
 }

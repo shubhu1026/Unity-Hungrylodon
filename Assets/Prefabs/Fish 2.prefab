@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1335551680411133393}
   - component: {fileID: 1335551680411133392}
   - component: {fileID: 1335551680411133395}
+  - component: {fileID: 3078521894038484306}
   m_Layer: 0
   m_Name: Fish 2
   m_TagString: Fish
@@ -176,3 +177,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3078521894038484306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335551680411133394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707d71e00e3d5654389eb391fdb28b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10

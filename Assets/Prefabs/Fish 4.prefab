@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7401849676110786628}
   - component: {fileID: 7401849676110786627}
   - component: {fileID: 7401849676110786624}
+  - component: {fileID: 4956336140793393039}
   m_Layer: 0
   m_Name: Fish 4
   m_TagString: Fish
@@ -891,3 +892,16 @@ PolygonCollider2D:
       - {x: 0.45499998, y: 0.7}
       - {x: 0.42499998, y: 0.69}
       - {x: 0.435, y: 0.7}
+--- !u!114 &4956336140793393039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401849676110786631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707d71e00e3d5654389eb391fdb28b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
