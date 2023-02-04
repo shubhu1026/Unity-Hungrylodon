@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 413634822840776847}
   - component: {fileID: 413634822840776841}
   - component: {fileID: 440717346830995972}
-  - component: {fileID: 413634822840776841}
-  - component: {fileID: 6462281618388116150}
-  - component: {fileID: -8150595778996608479}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Fish
@@ -90,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &440717346830995972
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413634822840776840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000002, y: 2.0000005}
-  m_Direction: 0
 --- !u!114 &413634822840776841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,15 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!70 &440717346830995972
 CapsuleCollider2D:
---- !u!114 &6462281618388116150
-MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413634822840776840}
   m_Enabled: 1
-<<<<<<< Updated upstream
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -199,23 +177,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5732112524079264878, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
   m_PrefabInstance: {fileID: 5662820603056427148}
   m_PrefabAsset: {fileID: 0}
-=======
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476fcca0b8b76d244b6cab66259d2d32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishSize: 200
---- !u!114 &-8150595778996608479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413634822840776840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b9cca8203352045a96b06417fe9082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
->>>>>>> Stashed changes
