@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GUIMainMenu : MonoBehaviour
 {
+    [SerializeField] GameObject canvas;
     [SerializeField] GameObject background;
     [SerializeField] GameObject aboutWindowGO;
     [SerializeField] Image audioButtonImage;
@@ -14,6 +15,18 @@ public class GUIMainMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] GameObject particleActiveGO;
     [SerializeField] AudioClip clickSound;
+    public static GUIMainMenu Instance;
+    
+    private void Awake() {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(canvas);
+            return;
+        }
+        Destroy(gameObject);
+        return;        
+    }
     private void Start() {
         SFXVolume();
         MusicVolume();
@@ -23,7 +36,7 @@ public class GUIMainMenu : MonoBehaviour
         gameObject.SetActive(false);
         background.SetActive(false);
         //load scene
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
     public void OpenAboutWindow()
     {

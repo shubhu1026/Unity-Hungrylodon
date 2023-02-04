@@ -7,9 +7,21 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] AudioClip[] musicTracks;
     [SerializeField] AudioSource audioSource;
+    public static MusicController Instance;
     
+    private void Awake() {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            return;
+        }
+        Destroy(gameObject);
+        return;        
+    }
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         SystemSetup.Instance.OnMusicVolumeChanged += SetMusicVolume;
         SystemSetup.Instance.OnAudioActiveChange += SetAudio;
     }
@@ -20,6 +32,7 @@ public class MusicController : MonoBehaviour
     private void OnDestroy()
     {
         SystemSetup.Instance.OnMusicVolumeChanged -= SetMusicVolume;
+        SystemSetup.Instance.OnAudioActiveChange -= SetAudio;
     }
     private void PlayRandomTrack()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SystemSetup : MonoBehaviour
 {
+    public float gameSpeed;
     public Action<float> OnMusicVolumeChanged;
     public Action<bool> OnAudioActiveChange;
     public Action OnParticleActiveChange;
@@ -17,6 +18,7 @@ public class SystemSetup : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
             return;
         }
         Destroy(gameObject);
