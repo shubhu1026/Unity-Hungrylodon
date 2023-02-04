@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class FishBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Sprite[] idleSprites;
+    [SerializeField] Sprite[] moveSprites;
+    [SerializeField] float speedAnimation = 10;
+    private float spriteIndex;
+    Sprite[] actualSpritesArr;
+    private SpriteRenderer spriteRenderer;
+    private void Start()
     {
-        
+        actualSpritesArr = moveSprites;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        spriteIndex += speedAnimation * Time.deltaTime;
+        int index = (int)spriteIndex % actualSpritesArr.Length;
+        spriteRenderer.sprite = actualSpritesArr[index];
     }
 }
