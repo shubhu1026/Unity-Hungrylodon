@@ -466,6 +466,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 413634822840776840, guid: 5abd65820d7345640a0d4e9ab27907c5, type: 3}
   spawnInterval: 0.5
+  spawnInterval: 1
   maxFishAllowed: 8
 --- !u!1 &1249618299
 GameObject:
@@ -899,6 +900,7 @@ PrefabInstance:
     - target: {fileID: 5939289725072642234, guid: 89b6e84a1c3c43d4a8a2f8d6bccfbff5, type: 3}
       propertyPath: rotationSpeed
       value: 100
+      value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 5939289725072642236, guid: 89b6e84a1c3c43d4a8a2f8d6bccfbff5, type: 3}
       propertyPath: m_RootOrder
@@ -980,6 +982,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 5939289725072642238, guid: 89b6e84a1c3c43d4a8a2f8d6bccfbff5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -988,5 +991,7 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89b6e84a1c3c43d4a8a2f8d6bccfbff5, type: 3}
