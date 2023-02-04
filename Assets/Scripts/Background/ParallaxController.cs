@@ -32,7 +32,11 @@ public class ParallaxController : MonoBehaviour
 
     void CalculateBackgroundSpeed(int backCount)
     {
-
+        for(int i = 0; i < backCount; i++)
+        {
+            if(backgrounds[i])
+            {}
+        }
     }
 
     // Update is called once per frame
