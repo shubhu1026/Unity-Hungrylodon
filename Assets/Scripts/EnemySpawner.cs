@@ -8,8 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnInterval = 0.5f;
     [SerializeField] int maxFishAllowed = 8;
 
-    float xMinRange = 22f;
-    float xMaxRange = 27f;
+    float xRange = 19f;
     float yRange = 9f;
 
     Vector2 spawnPosition;
@@ -53,16 +52,7 @@ public class EnemySpawner : MonoBehaviour
         int loopCount = 0;
         while(loopCount < 5)
         {
-
-            if(Random.value > 0.5)
-            {
-                position.x = Random.Range(xMinRange, xMaxRange);
-            }
-            else
-            {
-                position.x = Random.Range(-xMinRange, -xMaxRange);
-            }
-            
+            position.x = Random.Range(-xRange, xRange);
             position.y = Random.Range(-yRange, yRange);
             overlappingCollider = Physics2D.OverlapBox(position, objectToSpawn.GetComponent<CapsuleCollider2D>().size, 90);
             if(overlappingCollider == null)
