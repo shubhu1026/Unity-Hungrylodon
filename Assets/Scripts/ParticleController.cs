@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ParticleController : MonoBehaviour
 {
-    [SerializeField] ParticleSystem particleSystem;    
+    private ParticleSystem _particleSystem;
+    private void Awake() {
+        _particleSystem = GetComponent<ParticleSystem>();
+    }
     void Start()
     {
-        var v = particleSystem.main.playOnAwake;
+        var v = _particleSystem.main.playOnAwake;
         v = false;
         
         SystemSetup.Instance.OnParticleActiveChange += SetParticleSystemActive;
@@ -21,12 +24,16 @@ public class ParticleController : MonoBehaviour
     {
         if(SystemSetup.Instance.isParticleEnabled)
         {
-            particleSystem.Play();
+            if(_particleSystem.main.loop) _particleSystem.Play();
         }
         else
         {
-            particleSystem.Stop();
+            _particleSystem.Stop();
         }
 
+    }
+    public void PlayParticleSystem()
+    {
+        if(SystemSetup.Instance.isParticleEnabled) _particleSystem.Play();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GUIMainMenu : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class GUIMainMenu : MonoBehaviour
     [SerializeField] Sprite disabledAudio;
     [SerializeField] Slider SFXSlider;
     [SerializeField] Slider musicSlider;
-    [SerializeField] GameObject particleActiveGO;    
+    [SerializeField] GameObject particleActiveGO;
+    [SerializeField] AudioClip clickSound;
     private void Start() {
         SFXVolume();
         MusicVolume();
@@ -21,6 +23,7 @@ public class GUIMainMenu : MonoBehaviour
         gameObject.SetActive(false);
         background.SetActive(false);
         //load scene
+        //SceneManager.LoadScene(1);
     }
     public void OpenAboutWindow()
     {
@@ -48,5 +51,9 @@ public class GUIMainMenu : MonoBehaviour
         SystemSetup.Instance.ChangeParticleSetup(!enabled);
         //set active image
         particleActiveGO.SetActive(!enabled);
+    }
+    public void SFXClick()
+    {
+        SFXController.Instance.PlaySound(clickSound);
     }
 }
