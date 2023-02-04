@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
     Vector2 movementVector;
 
+    bool isFacingRight = true;
+
     // Start is called before the first frame update
     void Awake() 
     {
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         movementVector = new Vector2(horizontalInput, verticalInput);
+        movementVector = movementVector.normalized;
     }
 
     void RotateSprite()
@@ -52,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             currentScale = transform.localScale;
             currentScale.x *= -1;
             transform.localScale = currentScale;
+            isFacingRight = true;
         }
         //if moving left and looking right
         else if(horizontalInput < 0 && Mathf.Sign(transform.localScale.x) < 0)
@@ -60,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             currentScale = transform.localScale;
             currentScale.x *= -1;
             transform.localScale = currentScale;
+            isFacingRight = false;
         }
     }
 }
