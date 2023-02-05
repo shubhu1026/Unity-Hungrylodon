@@ -8,6 +8,7 @@ public class OtherFish : MonoBehaviour
     [SerializeField] float baseFishSize = 10f;
     [SerializeField] float basePointValue = 10f;
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] bool randomizeScale = true;
 
     float fishSize;
     float pointValue;
@@ -19,7 +20,10 @@ public class OtherFish : MonoBehaviour
     void Start()
     {    
         GetMoveDirection();
-        SetFishScale();
+        if(randomizeScale)
+        {
+            SetFishScale();
+        }
         SetPointValue();
     }
 

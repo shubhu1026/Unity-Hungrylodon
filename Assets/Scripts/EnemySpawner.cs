@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> enemyPrefabs;
-    [SerializeField] float spawnInterval = 0.5f;
     [SerializeField] int maxFishAllowed = 8;
 
     float xMinRange = 24f;
@@ -43,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
                     Instantiate(fish, spawnPosition, fish.transform.rotation);
                 }
             }
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(GameManager.gameInstance.SpawnInterval);
         }
     }
 
@@ -53,14 +52,16 @@ public class EnemySpawner : MonoBehaviour
         int loopCount = 0;
         while(loopCount < 5)
         {
-            if(Random.value > 0.5f)
-            {
+            //for only spawning the fish on right side
+            // if(Random.value > 0.5f)
+            // {
                 position.x = Random.Range(xMinRange, xMaxRange);
-            }
-            else
-            {
-                position.x = Random.Range(-xMinRange, -xMaxRange);
-            }
+            // }
+            
+            // else
+            // {
+            //     position.x = Random.Range(-xMinRange, -xMaxRange);
+            // }
             
             position.y = Random.Range(-yRange, yRange);
             overlappingCollider = Physics2D.OverlapBox(position, objectToSpawn.GetComponent<CapsuleCollider2D>().size, 90);

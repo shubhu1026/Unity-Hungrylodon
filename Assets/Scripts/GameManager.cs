@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] float spawnInterval = 0.5f;
     public bool isGameActive = false;
     public int spawnedFishCount = 0;
     private TextMeshProUGUI tmproScore;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public float SpawnInterval{ get{return spawnInterval;} set{spawnInterval = value;}}
 
     public static GameManager gameInstance;
 

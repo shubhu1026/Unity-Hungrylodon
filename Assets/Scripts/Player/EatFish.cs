@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EatFish : MonoBehaviour
 {
-    
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.tag == "Fish")
@@ -30,6 +29,5 @@ public class EatFish : MonoBehaviour
     void AddToScore(OtherFish enemyFish)
     {
         GameManager.gameInstance.Score += enemyFish.PointValue;
-        Debug.Log(GameManager.gameInstance.Score);
     }
 }
