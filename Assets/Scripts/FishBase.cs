@@ -6,7 +6,7 @@ public class FishBase : MonoBehaviour
 {
     [SerializeField] Sprite[] idleSprites;
     [SerializeField] Sprite[] moveSprites;
-    [SerializeField] float speedAnimation = 10;
+    [SerializeField] public float speedAnimation = 10;
     [SerializeField] ParticleController particleController;
     private float spriteIndex;
     Sprite[] actualSpritesArr;

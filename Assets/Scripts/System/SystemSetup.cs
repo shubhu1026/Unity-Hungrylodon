@@ -29,6 +29,7 @@ public class SystemSetup : MonoBehaviour
     {
         isParticleEnabled = true;
         isAudioEnabled = true;
+        SetSFXVolume(0.5f);
     }
     public void ChangeAudioEnabled(bool enabled)
     {

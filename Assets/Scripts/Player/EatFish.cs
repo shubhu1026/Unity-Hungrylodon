@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EatFish : MonoBehaviour
 {
+    [SerializeField] AudioClip[] eatSounds;
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.tag == "Fish")
         {
+            SFXController.Instance.PlaySound(GetRandomSound());
             OtherFish fish = other.GetComponent<OtherFish>();
             IncreaseCurrentScale(fish);
             AddToScore(fish);
-            Destroy(other.gameObject);
+            fish.Die();
         }
+    }
+
+    private AudioClip GetRandomSound()
+    {
+        return eatSounds[UnityEngine.Random.Range(0, eatSounds.Length)];
     }
 
     //Increase player size when they eat other fish

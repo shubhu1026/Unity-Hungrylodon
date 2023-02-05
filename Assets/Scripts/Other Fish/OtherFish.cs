@@ -98,4 +98,32 @@ public class OtherFish : MonoBehaviour
             transform.localScale = currentScale;
         }
     }
+    public void Die()
+    {
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (var item in colliders)
+        {
+            item.enabled = false;            
+        }
+        moveSpeed = 0;
+        StartCoroutine(Disapear());
+    }
+    private IEnumerator Disapear()
+    {
+        GetComponent<FishBase>().speedAnimation = 0;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        while (spriteRenderer.color.a > 0)
+        {
+            float speed = Time.deltaTime * 2;
+            Color newColor = spriteRenderer.color;
+            newColor.a -= speed;
+            spriteRenderer.color = newColor;
+            Vector3 newScale = Vector3.one * speed;
+            float sign = Mathf.Sign(transform.localScale.x);
+            newScale.x = newScale.x * sign;
+            transform.localScale += newScale;
+            yield return null;
+        }
+        Destroy(gameObject);
+    }
 }
