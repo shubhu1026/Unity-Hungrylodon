@@ -1,13 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public bool isGameActive = false;
     public int spawnedFishCount = 0;
-    public float Score;
+    private TextMeshProUGUI tmproScore;
+    private float _score;
+    public float Score
+    { 
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score = value;
+            UpdateScoreGUI();
+        } 
+    }
+
+
     public static GameManager gameInstance;
 
     //getter and setter
@@ -25,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         gameInstance = this;
         DontDestroyOnLoad(gameObject);
+        tmproScore = FindObjectOfType<Score>().GetComponent<TextMeshProUGUI>();
     }
 
     void Start()
@@ -40,6 +57,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void UpdateScoreGUI()
+    {
+        tmproScore.text = Mathf.RoundToInt(_score).ToString();
+    }
     void GameOver()
     {
         isGameActive = false;

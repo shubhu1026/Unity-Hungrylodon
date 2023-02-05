@@ -30,11 +30,12 @@ public class GUIMainMenu : MonoBehaviour
     private void Start() {
         SFXVolume();
         MusicVolume();
+        PlayGame();
     }
     public void PlayGame()
     {
         gameObject.SetActive(false);
-        background.SetActive(false);
+        background.SetActive(false);        
         //load scene
         SceneManager.LoadScene(1);
     }

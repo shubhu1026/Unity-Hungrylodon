@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/KomatrsTestScene.unity
+    path: Assets/Scenes/Start.unity
     guid: 2b0339df2c568ce4cb03b49516c6da35
   - enabled: 1
     path: Assets/Scenes/Game.unity

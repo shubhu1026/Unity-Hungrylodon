@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EatFish : MonoBehaviour
 {
+    
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.tag == "Fish")
@@ -19,8 +20,10 @@ public class EatFish : MonoBehaviour
     void IncreaseCurrentScale(OtherFish enemyFish)
     {
         float enemyFishSize = enemyFish.FishSize;
-        float newScale = transform.localScale.y + enemyFishSize/1000;
-        transform.localScale = new Vector3(newScale, newScale, newScale);
+        float newScale = Mathf.Abs(transform.localScale.x) + enemyFishSize/1000;
+        float sign = Mathf.Sign(transform.localScale.x);
+        transform.localScale = new Vector3(sign > 0 ? newScale : -newScale, newScale, newScale);
+        GetComponent<FishBase>()?.AttackVisual();
     }
 
     //add the point value to the score

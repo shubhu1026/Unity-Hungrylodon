@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float dashForce = 10f;
-    
     Rigidbody2D rb2d;
-
     float horizontalInput;
     float verticalInput;
     Vector2 movementVector;
@@ -23,12 +22,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInput();
-        CheckSpriteRotation();
-
+        //CheckSpriteRotation();
+        FlipSprite();
         if(Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.AddForce(movementVector * dashForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void FlipSprite()
+    {
+        if(Mathf.Abs(movementVector.x) < float.Epsilon) return;
+        float sign = Mathf.Sign(movementVector.x);
+        Vector3 currentScale = transform.localScale;
+        currentScale.x = - MathF.Abs(currentScale.x) * sign;
+        transform.localScale = currentScale;
     }
 
     void FixedUpdate() 
