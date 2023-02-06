@@ -22,16 +22,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInput();
-
-        if(GameManager.gameInstance.InvertControls)
-        {
-            movementVector *= -1;
-        }
         //CheckSpriteRotation();
         FlipSprite();
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.AddForce(movementVector * dashForce * GameManager.gameInstance.DashForceMultiplier, ForceMode2D.Impulse);
+            rb2d.AddForce(movementVector * dashForce, ForceMode2D.Impulse);
         }
     }
 
@@ -46,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        rb2d.AddForce(movementVector * moveSpeed * GameManager.gameInstance.MovementSpeedMultiplier);
+        rb2d.AddForce(movementVector * moveSpeed);
     }
 
     void ProcessInput()

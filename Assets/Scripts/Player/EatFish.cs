@@ -27,7 +27,7 @@ public class EatFish : MonoBehaviour
     void IncreaseCurrentScale(OtherFish enemyFish)
     {
         float enemyFishSize = enemyFish.FishSize;
-        float newScale = Mathf.Abs(transform.localScale.x) + enemyFishSize/5000;
+        float newScale = Mathf.Abs(transform.localScale.x) + enemyFishSize/1000;
         float sign = Mathf.Sign(transform.localScale.x);
         transform.localScale = new Vector3(sign > 0 ? newScale : -newScale, newScale, newScale);
         GetComponent<FishBase>()?.AttackVisual();

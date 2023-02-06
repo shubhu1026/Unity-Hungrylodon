@@ -15,11 +15,10 @@ public class FishFrenzy : Powerup
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            DisablePowerupPickup();
+            Destroy(gameObject);
             originalSpawnInterval = GameManager.gameInstance.SpawnInterval;
             GameManager.gameInstance.SpawnInterval = 5f;
             Power();
-            DestroyPowerup();
         }
     }
 
