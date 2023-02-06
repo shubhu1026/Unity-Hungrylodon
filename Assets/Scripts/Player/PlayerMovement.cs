@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
     Vector2 movementVector;
 
+    public float movementSpeed = 0f;
+
     // Start is called before the first frame update
     void Awake() 
     {
@@ -23,10 +25,22 @@ public class PlayerMovement : MonoBehaviour
     {
         ProcessInput();
         //CheckSpriteRotation();
+        IfInvertControls();
+        
+        movementSpeed = moveSpeed * GameManager.gameInstance.MovementSpeedMultiplier;
+
         FlipSprite();
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.AddForce(movementVector * dashForce, ForceMode2D.Impulse);
+            rb2d.AddForce(movementVector * dashForce * GameManager.gameInstance.DashForceMultiplier, ForceMode2D.Impulse);
+        }
+    }
+
+    void IfInvertControls()
+    {
+        if(GameManager.gameInstance.InvertControls)
+        {
+            movementVector *= -1;
         }
     }
 
@@ -41,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        rb2d.AddForce(movementVector * moveSpeed);
+        rb2d.AddForce(movementVector * moveSpeed * GameManager.gameInstance.MovementSpeedMultiplier);
     }
 
     void ProcessInput()
