@@ -14,11 +14,11 @@ TagManager:
   - Water
   - UI
   - Background
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerBody
+  - Fish
+  - PlayerMouth
+  - Mines
+  - Pickups
   - 
   - 
   - 

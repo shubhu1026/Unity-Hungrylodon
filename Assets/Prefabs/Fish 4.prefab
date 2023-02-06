@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7401849676110786624}
   - component: {fileID: 4956336140793393039}
   - component: {fileID: 3107146380907101896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fish 4
   m_TagString: Fish
   m_Icon: {fileID: 0}
@@ -910,6 +910,7 @@ MonoBehaviour:
   baseFishSize: 40
   basePointValue: 10
   moveSpeed: 10
+  randomizeScale: 1
 --- !u!114 &3107146380907101896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +947,10 @@ PrefabInstance:
     - target: {fileID: 5732112524079264874, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
       propertyPath: m_Name
       value: BubleParticles (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732112524079264874, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5732112524079264878, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
       propertyPath: m_RootOrder
@@ -1012,6 +1017,10 @@ PrefabInstance:
     - target: {fileID: 5732112524079264874, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
       propertyPath: m_Name
       value: BubleParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732112524079264874, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5732112524079264878, guid: 125610ff3435f8549be4b7675712ed97, type: 3}
       propertyPath: m_RootOrder

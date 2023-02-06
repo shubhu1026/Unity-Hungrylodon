@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 852352583022895513}
   - component: {fileID: 852352583022895515}
   - component: {fileID: 2079534861076149808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Invert Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

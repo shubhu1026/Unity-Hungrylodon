@@ -52,17 +52,7 @@ public class EnemySpawner : MonoBehaviour
         int loopCount = 0;
         while(loopCount < 5)
         {
-            //for only spawning the fish on right side
-            // if(Random.value > 0.5f)
-            // {
-                position.x = Random.Range(xMinRange, xMaxRange);
-            // }
-            
-            // else
-            // {
-            //     position.x = Random.Range(-xMinRange, -xMaxRange);
-            // }
-            
+            position.x = Random.Range(xMinRange, xMaxRange);
             position.y = Random.Range(-yRange, yRange);
             overlappingCollider = Physics2D.OverlapBox(position, objectToSpawn.GetComponent<CapsuleCollider2D>().size, 90);
             if(overlappingCollider == null)
