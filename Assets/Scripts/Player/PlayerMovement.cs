@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     Vector2 movementVector;
-
+    bool isInputKeys;
     public float movementSpeed = 0f;
 
     // Start is called before the first frame update
@@ -46,7 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        if(Mathf.Abs(movementVector.x) < float.Epsilon) return;
+        if (Mathf.Abs(movementVector.x) < float.Epsilon)
+        {
+            
+            return;
+        }
+        
         float sign = Mathf.Sign(movementVector.x);
         Vector3 currentScale = transform.localScale;
         currentScale.x = - MathF.Abs(currentScale.x) * sign;
@@ -55,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
+        if(!isInputKeys) return;
         rb2d.AddForce(movementVector * moveSpeed * GameManager.gameInstance.MovementSpeedMultiplier);
     }
 
@@ -63,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         movementVector = new Vector2(horizontalInput, verticalInput);
+        isInputKeys = movementVector == Vector2.zero ? false : true;
     }
 
     void CheckSpriteRotation()

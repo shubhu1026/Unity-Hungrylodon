@@ -10,8 +10,10 @@ public class EatFish : MonoBehaviour
     {
         if(other.gameObject.tag == "Fish")
         {
-            SFXController.Instance.PlaySound(GetRandomSound());
             OtherFish fish = other.GetComponent<OtherFish>();
+            if(!fish.isAlive) return;
+            fish.isAlive = false;
+            SFXController.Instance.PlaySound(GetRandomSound());
             IncreaseCurrentScale(fish);
             AddToScore(fish);
             fish.Die();
@@ -26,9 +28,12 @@ public class EatFish : MonoBehaviour
     //Increase player size when they eat other fish
     void IncreaseCurrentScale(OtherFish enemyFish)
     {
+        
         float enemyFishSize = enemyFish.FishSize;
-        float newScale = Mathf.Abs(transform.localScale.x) + enemyFishSize/5000;
+        float addedValue = enemyFishSize / 5000;
+        float newScale = Mathf.Abs(transform.localScale.x) + addedValue;
         float sign = Mathf.Sign(transform.localScale.x);
+        Debug.Log("old scale was" + transform.localScale.x + " added value is:" + addedValue + " new scale is: " + newScale + "   " + enemyFish.gameObject);
         transform.localScale = new Vector3(sign > 0 ? newScale : -newScale, newScale, newScale);
         GetComponent<FishBase>()?.AttackVisual();
     }
@@ -36,6 +41,6 @@ public class EatFish : MonoBehaviour
     //add the point value to the score
     void AddToScore(OtherFish enemyFish)
     {
-        GameManager.gameInstance.Score += enemyFish.PointValue;
+        GameManager.gameInstance.Score += GameManager.gameInstance.bonusMultiplier * enemyFish.PointValue;
     }
 }

@@ -14,7 +14,7 @@ public class OtherFish : MonoBehaviour
     float pointValue;
     public float PointValue {get {return pointValue;}}
     public float FishSize {get {return fishSize;}}
-
+    public bool isAlive = true;
     bool shouldMoveLeft = false;
 
     void Start()
@@ -100,11 +100,8 @@ public class OtherFish : MonoBehaviour
     }
     public void Die()
     {
-        Collider2D[] colliders = GetComponents<Collider2D>();
-        foreach (var item in colliders)
-        {
-            item.enabled = false;            
-        }
+        var v = GetComponent<CapsuleCollider2D>();
+        v.enabled = false;
         moveSpeed = 0;
         StartCoroutine(Disapear());
     }

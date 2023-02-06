@@ -8,6 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float spawnInterval = 0.5f;
+    TextMeshProUGUI multiplier;
     public bool isGameActive = false;
     public int spawnedFishCount = 0;
     private TextMeshProUGUI tmproScore;
@@ -18,16 +19,15 @@ public class GameManager : MonoBehaviour
 
     public float Score
     { 
-        get
-        {
-            return _score;
-        }
+        get => _score;        
         set
         {
             _score = value;
             UpdateScoreGUI();
+            ResetBonusTime();
         } 
     }
+
 
     public float SpawnInterval{ get{return spawnInterval;} set{spawnInterval = value;}}
     public static GameManager gameInstance;
@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
 
     int fishCount = 0;
 
+    [SerializeField] private float counterResetBonus = 2.2f;
+    private float bonusCounter;
+    public float bonusMultiplier = 1f;
     void Awake()
     {
         if(gameInstance != null)
@@ -55,11 +58,13 @@ public class GameManager : MonoBehaviour
 
     void Start() 
     {
+        multiplier = GameObject.Find("Multiptier Text")?.GetComponent<TextMeshProUGUI>();
         StartGame();
     }
 
     public void StartGame()
     {
+        bonusCounter = counterResetBonus;
         isGameActive = true;
         ResetVariables();
     }
@@ -75,10 +80,27 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(spawnedFishCount >= 50)
+        if (bonusCounter > 0)
+        {
+            bonusCounter -= Time.deltaTime;
+        }
+        else ResetBonusValue();
+        if (spawnedFishCount >= 50)
         {
             GameOver();
         }
+    }
+
+    private void ResetBonusValue()
+    {
+        bonusMultiplier = 1f;
+        multiplier.text = bonusMultiplier.ToString();
+    }
+    private void ResetBonusTime()
+    {
+        bonusCounter = counterResetBonus;
+        bonusMultiplier = Mathf.Min(bonusMultiplier + 0.1f, 2f);
+        multiplier.text = bonusMultiplier.ToString();
     }
 
     private void UpdateScoreGUI()
