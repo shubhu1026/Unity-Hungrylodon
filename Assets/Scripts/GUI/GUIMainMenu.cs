@@ -38,6 +38,7 @@ public class GUIMainMenu : MonoBehaviour
         background.SetActive(false);        
         //load scene
         SceneManager.LoadScene(1);
+        GameManager.gameInstance.StartGame();
     }
     public void OpenAboutWindow()
     {
