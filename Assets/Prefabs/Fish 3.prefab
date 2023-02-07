@@ -198,6 +198,7 @@ MonoBehaviour:
   basePointValue: 40
   moveSpeed: 10
   randomizeScale: 1
+  isAlive: 1
 --- !u!114 &1516900416213025770
 MonoBehaviour:
   m_ObjectHideFlags: 0

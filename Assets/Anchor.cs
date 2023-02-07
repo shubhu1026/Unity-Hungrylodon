@@ -12,11 +12,11 @@ public class Anchor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void 
-    FixedUpdate()
+    void FixedUpdate()
     {
         
     }
+    
     private void OnTriggerEnter2D(Collider2D other) {
         float newScale = Mathf.Abs(other.transform.localScale.x - 0.1f);
         float sign = Mathf.Sign(other.transform.localScale.x);
