@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public abstract class Powerup : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public abstract class Powerup : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponentInChildren<Light2D>().enabled = false;
     }
 
     public void DestroyPowerup()
