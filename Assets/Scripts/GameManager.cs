@@ -8,6 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float spawnInterval = 0.5f;
+    [SerializeField] int maxFishToBeSpawned = 50;
     TextMeshProUGUI multiplier;
     public bool isGameActive = false;
     public int spawnedFishCount = 0;
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
             bonusCounter -= Time.deltaTime;
         }
         else ResetBonusValue();
-        if (spawnedFishCount >= 50)
+        if (spawnedFishCount >= maxFishToBeSpawned)
         {
             GameOver();
         }

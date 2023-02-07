@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 852352583022895513}
   - component: {fileID: 852352583022895514}
   - component: {fileID: 852352583022895515}
+  - component: {fileID: -7720489915839630747}
   m_Layer: 11
   m_Name: Fish Frenzy Trial 1
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37b0a2dc33bd8d74895afb5c3f80a479, type: 3}
-  m_Color: {r: 0, g: 0.5810096, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9b87f9fe94e5d444eaf5bf7aef532a93, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,9 +114,21 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.012473583, y: 0.020789385}
   serializedVersion: 2
-  m_Radius: 0.425
+  m_Radius: 0.54142076
+--- !u!114 &-7720489915839630747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5898591394538910094
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5898591394538910094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -165,7 +178,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.79
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000

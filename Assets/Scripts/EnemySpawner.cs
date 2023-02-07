@@ -14,31 +14,22 @@ public class EnemySpawner : MonoBehaviour
     Vector2 spawnPosition;
 
     Collider2D overlappingCollider;
-
-    GameManager gameManager;
-
-    void Awake()
-    {
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
-
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(SpawnFish());
     }
 
     IEnumerator SpawnFish()
     {
-        while(gameManager.isGameActive)
+        while(GameManager.gameInstance.isGameActive)
         {
-            if(gameManager.GetFishCount() < maxFishAllowed)
+            if(GameManager.gameInstance.GetFishCount() < maxFishAllowed)
             {
                 GameObject fish = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
                 spawnPosition = GetSpawnPosition(fish);
                 if(spawnPosition != Vector2.zero)
                 {
-                    gameManager.SpawnedFishCount++;
+                    GameManager.gameInstance.SpawnedFishCount++;
                     Instantiate(fish, spawnPosition, fish.transform.rotation);
                 }
             }

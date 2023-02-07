@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    float xRange = 35f;
-    float yRange = 26f;
+    float xRange = 45f;
+    float yRange = 30f;
 
     bool isOutOfBounds = false;
 
