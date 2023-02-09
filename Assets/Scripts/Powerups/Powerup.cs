@@ -9,6 +9,8 @@ public abstract class Powerup : MonoBehaviour
     [SerializeField] protected float powerupTime = 5f;
     float rotationRange = 15;
 
+    Light2D[] lights;
+
     float minMoveSpeed = 1;
     float maxMoveSpeed = 5;
     float moveSpeed;
@@ -41,7 +43,12 @@ public abstract class Powerup : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Collider2D>().enabled = false;
-        gameObject.GetComponentInChildren<Light2D>().enabled = false;
+        lights = gameObject.GetComponentsInChildren<Light2D>();
+
+        foreach(Light2D light in lights)
+        {
+            light.enabled = false;
+        }
     }
 
     public void DestroyPowerup()
