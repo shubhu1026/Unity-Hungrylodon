@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 852352583022895515}
   - component: {fileID: 3586341318694325800}
   - component: {fileID: -8929844918427600427}
+  - component: {fileID: 1025003033921748191}
   m_Layer: 11
   m_Name: Speed Down
   m_TagString: Untagged
@@ -130,6 +131,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1025003033921748191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bae3d21dc0825646afcf18bc0f09b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSprites:
+  - {fileID: 21300000, guid: 7dc241fe25687db44b33f79998e04fe2, type: 3}
+  - {fileID: 21300000, guid: b23966ad42ba31944867fde57a8ee768, type: 3}
+  - {fileID: 21300000, guid: f06e18401b019cf4a93d7b96efdee8e6, type: 3}
+  - {fileID: 21300000, guid: 14bbfde222de37c4294356cc5d1f0076, type: 3}
+  - {fileID: 21300000, guid: 1a359fa95d8d2694cb5664e14425740d, type: 3}
+  - {fileID: 21300000, guid: dcedd5338f2ddd64ea32d06dbf62a31a, type: 3}
+  - {fileID: 21300000, guid: d9cc59fbebb2ce84584243c1934a9283, type: 3}
+  - {fileID: 21300000, guid: 17275ac597d313d489238ca1a0e8caec, type: 3}
+  - {fileID: 21300000, guid: 866e63ecb926635498881d16f53399be, type: 3}
+  - {fileID: 21300000, guid: 94aa34efa77af7943b3d43656de22610, type: 3}
+  speedAnimation: 10
 --- !u!1 &4858376608779473391
 GameObject:
   m_ObjectHideFlags: 0

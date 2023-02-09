@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 852352583022895515}
   - component: {fileID: -8197239276012956933}
   - component: {fileID: 2641966437271141884}
+  - component: {fileID: 6803956500737659068}
+  - component: {fileID: 3840633967456133613}
   m_Layer: 11
   m_Name: Speed Up
   m_TagString: Untagged
@@ -130,6 +132,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6803956500737659068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bae3d21dc0825646afcf18bc0f09b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSprites:
+  - {fileID: 21300000, guid: 201bd4cd3ddbb3c4fa2f40bcdb2d8539, type: 3}
+  - {fileID: 21300000, guid: 9ca4514bb24e8e4419c962084dbf0c0d, type: 3}
+  - {fileID: 21300000, guid: e540ca561163ae14f87cbbe93a993f14, type: 3}
+  - {fileID: 21300000, guid: 49c6aac665caf424697b0b3ddc9b50b5, type: 3}
+  - {fileID: 21300000, guid: d4e3277f2fe165b4195ee5ef6f2c8069, type: 3}
+  - {fileID: 21300000, guid: 380d77da67060854f91899d040253cf3, type: 3}
+  - {fileID: 21300000, guid: 658f73fd9882dd04b9bdcc2730764820, type: 3}
+  - {fileID: 21300000, guid: 2f5aa109139199c4eb4e8d29781a83dc, type: 3}
+  - {fileID: 21300000, guid: 35d67405d14e36a4099293c092ee6aaf, type: 3}
+  - {fileID: 21300000, guid: 17ca67694cf27744d97e22c7eca8b1d4, type: 3}
+  speedAnimation: 10
+--- !u!95 &3840633967456133613
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c59d831fedf1ec24db4bd5f2e5cc8986, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2622350770811296096
 GameObject:
   m_ObjectHideFlags: 0

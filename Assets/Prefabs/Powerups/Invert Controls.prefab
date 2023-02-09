@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 852352583022895515}
   - component: {fileID: 2079534861076149808}
   - component: {fileID: 2356825166251221520}
+  - component: {fileID: -7224123432811521253}
   m_Layer: 11
   m_Name: Invert Controls
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 852352583022895508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8626675661370800148}
@@ -130,6 +131,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7224123432811521253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bae3d21dc0825646afcf18bc0f09b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSprites:
+  - {fileID: 21300000, guid: b41ca36b48976f644a60b7610f21f579, type: 3}
+  - {fileID: 21300000, guid: eb8bfd4939b32cc45853355396efba7e, type: 3}
+  - {fileID: 21300000, guid: 552281a73199b6845a271033853f7564, type: 3}
+  - {fileID: 21300000, guid: 8bbadf07500cf4a499740503fe7729f7, type: 3}
+  - {fileID: 21300000, guid: 0a2479c39d36a83459011da6f4ccc1f2, type: 3}
+  - {fileID: 21300000, guid: b2daa138fc47fb24e927a2d57cacaba2, type: 3}
+  - {fileID: 21300000, guid: 6dbb2cf0941cfc343b8a99bf0365741c, type: 3}
+  - {fileID: 21300000, guid: 363a222bcf0656e4ab7412da82afd613, type: 3}
+  - {fileID: 21300000, guid: 0611af35347d74d4699298657ff7226a, type: 3}
+  - {fileID: 21300000, guid: a19921e08e2ef224db734e325ca390a2, type: 3}
+  speedAnimation: 10
 --- !u!1 &4349538379285656848
 GameObject:
   m_ObjectHideFlags: 0

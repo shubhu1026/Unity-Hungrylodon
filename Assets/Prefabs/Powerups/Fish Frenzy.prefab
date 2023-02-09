@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 852352583022895514}
   - component: {fileID: 852352583022895515}
   - component: {fileID: -7720489915839630747}
+  - component: {fileID: -1102989334670334956}
   m_Layer: 11
-  m_Name: Fish Frenzy Trial 1
+  m_Name: Fish Frenzy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +134,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfd59d11251b00459e116a860b2c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1102989334670334956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852352583022895508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bae3d21dc0825646afcf18bc0f09b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSprites:
+  - {fileID: 21300000, guid: 9b87f9fe94e5d444eaf5bf7aef532a93, type: 3}
+  - {fileID: 21300000, guid: e6749e6438748524392559be611ce359, type: 3}
+  - {fileID: 21300000, guid: bf260c0be4f582e4cbcc5d507db51e16, type: 3}
+  - {fileID: 21300000, guid: 6a6e3d3d2588d0a4088c6b2012e9d4b0, type: 3}
+  - {fileID: 21300000, guid: e07aa9307ca9be1479a4eeda4be09c29, type: 3}
+  - {fileID: 21300000, guid: 8deaf9879f3ac2d469a9e8ec378c5a4a, type: 3}
+  - {fileID: 21300000, guid: 70175bc966656324d9de6ad6e2a3377e, type: 3}
+  - {fileID: 21300000, guid: 80326ba1907a013439e7e0ff4e2f0c52, type: 3}
+  - {fileID: 21300000, guid: efae41fc9ef61334684bca0931082241, type: 3}
+  - {fileID: 21300000, guid: 0a50ba194e371114ea37dedf2d072fc1, type: 3}
+  speedAnimation: 10
 --- !u!1 &2911537963071026619
 GameObject:
   m_ObjectHideFlags: 0
