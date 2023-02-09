@@ -9,26 +9,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float spawnInterval = 0.5f;
     [SerializeField] int maxFishToBeSpawned = 50;
-    TextMeshProUGUI multiplier;
+    public Action OnGameReset;
     public bool isGameActive = false;
-    public int spawnedFishCount = 0;
-    private TextMeshProUGUI tmproScore;
-    private float _score;
+    public int spawnedFishCount = 0; 
     private float movementSpeedMultiplier = 1f;
     private float dashForceMultiplier = 1f;
     private bool invertControls = false;
-
-    public float Score
-    { 
-        get => _score;        
-        set
-        {
-            _score = value;
-            UpdateScoreGUI();
-            ResetBonusTime();
-        } 
-    }
-
 
     public float SpawnInterval{ get{return spawnInterval;} set{spawnInterval = value;}}
     public static GameManager gameInstance;
@@ -41,9 +27,7 @@ public class GameManager : MonoBehaviour
 
     int fishCount = 0;
 
-    [SerializeField] private float counterResetBonus = 2.2f;
-    private float bonusCounter;
-    public float bonusMultiplier = 1f;
+    
     void Awake()
     {
         if(gameInstance != null)
@@ -53,61 +37,40 @@ public class GameManager : MonoBehaviour
         }
 
         gameInstance = this;
-        DontDestroyOnLoad(gameObject);
-        tmproScore = FindObjectOfType<Score>().GetComponent<TextMeshProUGUI>();
+        DontDestroyOnLoad(gameObject);        
     }
 
     void Start() 
-    {
-        multiplier = GameObject.Find("Multiptier Text")?.GetComponent<TextMeshProUGUI>();
+    {        
         StartGame();
     }
 
     public void StartGame()
-    {
-        bonusCounter = counterResetBonus;
+    {        
         isGameActive = true;
         ResetVariables();
     }
 
     void ResetVariables()
     {
+        OnGameReset?.Invoke();
         spawnedFishCount = 0;
         movementSpeedMultiplier = 1;
         dashForceMultiplier = 1f;
-        invertControls = false;
-        _score = 0;
+        invertControls = false;        
     }
 
     void Update()
     {
-        if (bonusCounter > 0)
-        {
-            bonusCounter -= Time.deltaTime;
-        }
-        else ResetBonusValue();
         if (spawnedFishCount >= maxFishToBeSpawned)
         {
             GameOver();
         }
     }
 
-    private void ResetBonusValue()
-    {
-        bonusMultiplier = 1f;
-        multiplier.text = bonusMultiplier.ToString();
-    }
-    private void ResetBonusTime()
-    {
-        bonusCounter = counterResetBonus;
-        bonusMultiplier = Mathf.Min(bonusMultiplier + 0.1f, 2f);
-        multiplier.text = bonusMultiplier.ToString();
-    }
+    
 
-    private void UpdateScoreGUI()
-    {
-        tmproScore.text = Mathf.RoundToInt(_score).ToString();
-    }
+    
     void GameOver()
     {
         isGameActive = false;

@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b30d217024c7a948a7732a030d2eda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupTime: 0
   fishPrefab: {fileID: 7431515543192267128, guid: 73c12c6ad5045e14396509807ddb7756, type: 3}
 --- !u!58 &852352583022895515
 CircleCollider2D:

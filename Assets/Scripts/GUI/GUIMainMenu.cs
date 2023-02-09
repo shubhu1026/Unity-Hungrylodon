@@ -30,15 +30,22 @@ public class GUIMainMenu : MonoBehaviour
     private void Start() {
         SFXVolume();
         MusicVolume();
-        PlayGame();
+        //actual scene is not start scene -> fix for develop, any scene can be run at start        
+        MenuActive(SceneManager.GetActiveScene().buildIndex == 0);        
     }
     public void PlayGame()
-    {
-        gameObject.SetActive(false);
-        background.SetActive(false);        
-        //load scene
-        SceneManager.LoadScene(1);
+    {        
+        bool isInMainMenu = SceneManager.GetActiveScene().buildIndex == 0;        
+        MenuActive(isInMainMenu);
+        if(isInMainMenu) SceneManager.LoadScene(1);
     }
+
+    private void MenuActive(bool enable)
+    {        
+        gameObject.SetActive(enable);
+        background.SetActive(enable);
+    }
+
     public void OpenAboutWindow()
     {
         aboutWindowGO.gameObject.SetActive(true);

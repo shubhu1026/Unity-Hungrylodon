@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedUp : Powerup
 {
     float originalMoveForce;
-    [SerializeField] float powerupTime = 5f;
+    //[SerializeField] float powerupTime = 5f; protected variable in abstract class
 
     public override void Power()
     {

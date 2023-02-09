@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public abstract class Powerup : MonoBehaviour
 {
     public abstract void Power();
-
+    [SerializeField] protected float powerupTime = 5f;
     float rotationRange = 15;
 
     float minMoveSpeed = 1;
@@ -30,6 +30,7 @@ public abstract class Powerup : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            if(powerupTime > 0) FindObjectOfType<GUIPowerup>().SetPowerupCounter(powerupTime);
             DisablePowerupPickup();
             Power();
         }

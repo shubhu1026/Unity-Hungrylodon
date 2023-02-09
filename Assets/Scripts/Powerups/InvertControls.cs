@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InvertControls : Powerup
 {
-    [SerializeField] float powerupTime = 5f;
+    //[SerializeField] float powerupTime = 5f;
 
     public override void Power()
     {
