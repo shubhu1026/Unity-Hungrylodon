@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PowerupSpawner : MonoBehaviour
 {
-    [SerializeField] int minPowerupCount = 4;
-    [SerializeField] int maxPowerupCount = 10;
     [SerializeField] float minSpawnInterval = 5;
     [SerializeField] float maxSpawnInterval = 25;
 
@@ -17,10 +15,7 @@ public class PowerupSpawner : MonoBehaviour
     //for spawns
     float xRange = 24;
     float yPosition = -20f;
-
-    int powerupsSpawned = 0;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         StartCoroutine(SpawnPowerups());

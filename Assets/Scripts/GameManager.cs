@@ -67,9 +67,6 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
-    
-
     
     void GameOver()
     {
