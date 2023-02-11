@@ -8,6 +8,7 @@ public abstract class Powerup : MonoBehaviour
     public abstract void Power();
     [SerializeField] protected float powerupTime = 5f;
     [SerializeField] AudioClip pickSound;
+    [SerializeField] Sprite stateIcon;
     float rotationRange = 15;
 
     Light2D[] lights;
@@ -20,7 +21,7 @@ public abstract class Powerup : MonoBehaviour
     {
         float rotation = Random.Range(-rotationRange, rotationRange);
         transform.Rotate(0, 0, rotation);
-
+        
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
     }
 
@@ -33,7 +34,7 @@ public abstract class Powerup : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if(powerupTime > 0) FindObjectOfType<GUIPowerup>()?.SetPowerupCounter(powerupTime);
+            if(powerupTime > 0) FindObjectOfType<GUIPowerup>()?.SetPowerupCounter(powerupTime, stateIcon);
             SFXController.Instance.PlaySound(pickSound);
             DisablePowerupPickup();
             Power();

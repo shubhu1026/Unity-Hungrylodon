@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GUIPowerup : MonoBehaviour
 {
+    
     [SerializeField] private Slider _powerupSlider;
     [SerializeField] AudioClip powerclip;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] Image iconImage;
     private float _totalTime;
     private float _currentTime;
     private bool _isActive;
 
-    public void SetPowerupCounter(float time)
+    public void SetPowerupCounter(float time, Sprite icon)
     {
+        if(icon != null)
+        {
+            iconImage.gameObject.SetActive(true);
+            iconImage.sprite = icon;
+        }
         //MusicController.Instance.SetMute(true);
         audioSource.Stop();
         audioSource.volume = SystemSetup.Instance.MusicVolume;
@@ -25,6 +33,7 @@ public class GUIPowerup : MonoBehaviour
     }
     private void Start() {
         _powerupSlider.gameObject.SetActive(false);
+        iconImage.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -33,6 +42,7 @@ public class GUIPowerup : MonoBehaviour
         _currentTime -= Time.deltaTime;
         if(_currentTime < 0)
         {
+            iconImage.gameObject.SetActive(false);
             MusicController.Instance.SetMute(false);
             audioSource.Stop();
             _isActive = false;

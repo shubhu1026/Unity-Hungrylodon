@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float spawnInterval = 0.5f;
     [SerializeField] GameObject anchors;
+    [SerializeField] GameObject mines;
     public Action OnGameReset;
     public bool isGameActive = false;
     //public int spawnedFishCount = 0; 
@@ -49,7 +50,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {        
         isGameActive = true;
-        ResetVariables();        
+        ResetVariables();
+        Time.timeScale = 1;        
     }
 
     void ResetVariables()
@@ -86,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         CanvasController canvasController = FindObjectOfType<CanvasController>();
         canvasController.ShowEndLeaderboardGui();
-        
+        Time.timeScale = 0;
         FindObjectOfType<Leaderboard>().ShowActualScore();
     }
     IEnumerator EndGamecoroutine(Action endAction)
@@ -115,7 +117,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(FindObjectOfType<Anchors>().gameObject);
         }
+        if(FindObjectOfType<Mines>())
+        {
+            Destroy(FindObjectOfType<Mines>().gameObject);
+        }
         Instantiate(anchors);
+        Instantiate(mines);
         StartGame();        
     }
 

@@ -10,7 +10,7 @@ public class Mine : MonoBehaviour
     bool isActive = true;
     bool isUsed = false;
     float explosionSpeed = 0.1f;
-    [SerializeField] AudioClip[] hits;
+    [SerializeField] AudioClip hit;
     [SerializeField] Sprite[] explosionAnimation;
     int index;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -30,6 +30,7 @@ public class Mine : MonoBehaviour
             {
                 timer = 0;
                 index++;
+                transform.localScale += new Vector3(0.15f, 0.15f, 0.15f);
                 if(index >= explosionAnimation.Length)
                 {
                     Destroy(gameObject);
@@ -58,7 +59,7 @@ public class Mine : MonoBehaviour
         float sign = Mathf.Sign(other.transform.localScale.x);
         Debug.Log("mine hit! new scale is: " + newScale);
         other.transform.localScale = new Vector3(sign > 0 ? newScale : -newScale, newScale, newScale);        
-        SFXController.Instance.PlaySound(hits[Random.Range(0, hits.Length)]);
+        SFXController.Instance.PlaySound(hit);
         timer = 0;
         GetComponent<Rigidbody2D>().Sleep();
         isUsed = true;

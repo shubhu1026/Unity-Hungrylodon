@@ -47,8 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea5b7222c474dc4fbf531a74d2c2116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPower: 20
-  hits: []
+  speedPower: 10
+  hit: {fileID: 8300000, guid: e1c1df66cb6d06149b5c7863acaba43c, type: 3}
+  explosionAnimation:
+  - {fileID: 21300000, guid: 466491c5c721df9409239ab110976794, type: 3}
+  - {fileID: 21300000, guid: 1c7b473f615fe984f88f279d1f7c20c4, type: 3}
+  - {fileID: 21300000, guid: 93f9c551cf29f3b499776e2a20640423, type: 3}
+  - {fileID: 21300000, guid: c494be2ced6029641a12f4a237423994, type: 3}
+  - {fileID: 21300000, guid: 5ba05d892fcbb4c45baea1f84f1b9c15, type: 3}
+  - {fileID: 21300000, guid: 55e996e526cef5d488104683f3ce2408, type: 3}
+  - {fileID: 21300000, guid: 338c5aa52746f9244bde6919d2a233a5, type: 3}
+  - {fileID: 21300000, guid: c98f81063983757478712491842adfac, type: 3}
+  - {fileID: 21300000, guid: 222d26f1a891832429878b9154bea159, type: 3}
+  spriteRenderer: {fileID: 7963945882679713737}
 --- !u!58 &8189582493768890148
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 6265152675187204887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3931064477377015740}

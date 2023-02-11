@@ -404,6 +404,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1725217957148619241, guid: 988a190e529f13c489f32be8415890f4, type: 3}
+      propertyPath: mines
+      value: 
+      objectReference: {fileID: 8274335215885149802, guid: ac01191756384ee489368fbe538450fd, type: 3}
+    - target: {fileID: 1725217957148619241, guid: 988a190e529f13c489f32be8415890f4, type: 3}
       propertyPath: anchors
       value: 
       objectReference: {fileID: 165948849620157460, guid: 11118c30e3e66ef4cb111248e1dbe1db, type: 3}
@@ -624,6 +628,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 811101153882067232, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_text
+      value: 'Created by:
+
+        Donedevil & Komatr
+
+
+        Sprites by:
+
+        Craftpix.com
+
+        Audio:
+        free CC0 +
+
+        Audioblocks.com'
+      objectReference: {fileID: 0}
+    - target: {fileID: 811101153882067232, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 811101153882067232, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 811101154151210145, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -742,14 +770,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 827003530481934831, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_text
-      value: 'WSAD(or arrows) for Movement
+      value: 'EAT FISH & ENJOY
 
 
-        SPACE for dash
+        WSAD(or arrows) = Movement
 
 
-        ...consume
-        all fish...'
+        SPACE
+        = Dash'
       objectReference: {fileID: 0}
     - target: {fileID: 827003530481934831, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -834,6 +862,18 @@ PrefabInstance:
     - target: {fileID: 5975930618824581429, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715400504280405082, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_CellSize.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715400504280405082, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_CellSize.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022970648304925342, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -57
       objectReference: {fileID: 0}
     - target: {fileID: 7587197030257506901, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_IsActive
