@@ -20,7 +20,10 @@ public class MusicController : MonoBehaviour
         Destroy(gameObject);
         return;        
     }
-    
+    public void SetMute(bool muted)
+    {
+        audioSource.volume = muted ? 0 : SystemSetup.Instance.SFXVolume;
+    }
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -38,7 +41,8 @@ public class MusicController : MonoBehaviour
     }
     private void PlayRandomTrack()
     {
-        int rnd = UnityEngine.Random.Range(0, musicTracks.Length);        
+        int rnd = UnityEngine.Random.Range(0, musicTracks.Length);
+        audioSource.volume = SystemSetup.Instance.SFXVolume;
         audioSource.PlayOneShot(musicTracks[rnd]);
     }
     private void SetMusicVolume(float volume)

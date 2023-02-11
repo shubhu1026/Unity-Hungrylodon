@@ -14,6 +14,8 @@ public class GUIPowerup : MonoBehaviour
 
     public void SetPowerupCounter(float time)
     {
+        MusicController.Instance.SetMute(true);
+        audioSource.Stop();
         audioSource.volume = SystemSetup.Instance.MusicVolume;
         audioSource.PlayOneShot(powerclip);
         _isActive = true;
@@ -31,6 +33,7 @@ public class GUIPowerup : MonoBehaviour
         _currentTime -= Time.deltaTime;
         if(_currentTime < 0)
         {
+            MusicController.Instance.SetMute(false);
             audioSource.Stop();
             _isActive = false;
             _currentTime = 0;
@@ -38,5 +41,9 @@ public class GUIPowerup : MonoBehaviour
         }
         float sliderValueNormalized = _currentTime / _totalTime;        
         _powerupSlider.value = sliderValueNormalized;
+    }
+    private void OnEnable() {
+        MusicController.Instance.SetMute(false);
+        audioSource.Stop();
     }
 }
