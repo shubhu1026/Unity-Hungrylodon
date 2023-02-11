@@ -35,7 +35,7 @@ public class EatFish : MonoBehaviour
     {
         
         float enemyFishSize = enemyFish.FishSize;
-        float addedValue = enemyFishSize / 5000;
+        float addedValue = enemyFishSize / 2000;
         float newScale = Mathf.Abs(transform.localScale.x) + addedValue;
         float sign = Mathf.Sign(transform.localScale.x);
         //Debug.Log("old scale was" + transform.localScale.x + " added value is:" + addedValue + " new scale is: " + newScale + "   " + enemyFish.gameObject);

@@ -554,11 +554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 795097441, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 795097441, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 795097441, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_Color.r
@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7587197030257506901, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8959370669429670279, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -843,7 +847,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[0]
@@ -856,11 +860,11 @@ PrefabInstance:
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 4457b90c05e5821438eef7d16c8c1a9e, type: 3}
+      objectReference: {fileID: 8300000, guid: 49d723abd2009794790d78e18fc85019, type: 3}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: 49d723abd2009794790d78e18fc85019, type: 3}
+      objectReference: {fileID: 8300000, guid: 5982ef97d573faa468657d83c99715d8, type: 3}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[4]
       value: 
