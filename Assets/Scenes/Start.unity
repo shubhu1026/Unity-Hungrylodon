@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 811101154595629211, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 811101154883500454, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -735,6 +739,21 @@ PrefabInstance:
     - target: {fileID: 811101154883500454, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827003530481934831, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_text
+      value: 'WSAD(or arrows) for Movement
+
+
+        SPACE for dash
+
+
+        ...consume
+        all fish...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 827003530481934831, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1939662175748322031, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -788,6 +807,10 @@ PrefabInstance:
       propertyPath: particleActiveGO
       value: 
       objectReference: {fileID: 1742665787}
+    - target: {fileID: 3480356688838470792, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5975930618824581429, guid: 9928b3dbd8bfc1c4ba8437e508c5a6e5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
