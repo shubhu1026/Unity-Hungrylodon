@@ -32,7 +32,7 @@ public abstract class Powerup : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if(powerupTime > 0) FindObjectOfType<GUIPowerup>().SetPowerupCounter(powerupTime);
+            if(powerupTime > 0) FindObjectOfType<GUIPowerup>()?.SetPowerupCounter(powerupTime);
             DisablePowerupPickup();
             Power();
         }

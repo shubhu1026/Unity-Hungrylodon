@@ -6,10 +6,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> enemyPrefabs;
     [SerializeField] int maxFishAllowed = 8;
-
+    [SerializeField] int maxFishToBeSpawned = 50;
+    
     float xMinRange = 24f;
     float xMaxRange = 32f;
     float yRange = 9f;
+    int SpawnedFishCount;
+    int currentFishCount;
 
     Vector2 spawnPosition;
 
@@ -21,19 +24,38 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnFish()
     {
-        while(GameManager.gameInstance.isGameActive)
+        while (SpawnedFishCount < maxFishToBeSpawned)
         {
-            if(GameManager.gameInstance.GetFishCount() < maxFishAllowed)
+            while(currentFishCount < maxFishAllowed)
             {
-                GameObject fish = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-                spawnPosition = GetSpawnPosition(fish);
-                if(spawnPosition != Vector2.zero)
-                {
-                    GameManager.gameInstance.SpawnedFishCount++;
-                    Instantiate(fish, spawnPosition, fish.transform.rotation);
-                }
+                SpawnSingleFish();
+                yield return new WaitForSeconds(GameManager.gameInstance.SpawnInterval);
             }
-            yield return new WaitForSeconds(GameManager.gameInstance.SpawnInterval);
+            yield return new WaitWhile(() =>
+                {
+                    return currentFishCount >= maxFishAllowed;
+                }
+            );
+        }
+        
+
+        
+        GameManager.gameInstance.GameOver();
+    }
+    private void FishDead()
+    {
+        currentFishCount--;
+    }
+    private void SpawnSingleFish()
+    {
+        GameObject fishPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        spawnPosition = GetSpawnPosition(fishPrefab);
+        if (spawnPosition != Vector2.zero)
+        {
+            SpawnedFishCount++;
+            currentFishCount++;
+            GameObject currentFish = Instantiate(fishPrefab, spawnPosition, fishPrefab.transform.rotation);
+            currentFish.GetComponent<OtherFish>().OnDeath += FishDead;
         }
     }
 

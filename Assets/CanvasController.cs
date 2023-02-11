@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class GUIMainMenu : MonoBehaviour
+
+public class CanvasController : MonoBehaviour
 {
-    [SerializeField] GameObject canvas;
+    [SerializeField] GameObject leaderboard;
+    [SerializeField] GameObject playerName;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject about;
     [SerializeField] GameObject background;
     [SerializeField] Image audioButtonImage;
     [SerializeField] Sprite enabledAudio;
@@ -14,36 +18,40 @@ public class GUIMainMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] GameObject particleActiveGO;
     [SerializeField] AudioClip clickSound;
-    private static GUIMainMenu Instance;
+    private static CanvasController Instance;
     
     private void Awake() {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(canvas);
+            DontDestroyOnLoad(this.gameObject);
             return;
         }
         Destroy(gameObject);
         return;        
     }
     private void Start() {
+        leaderboard.gameObject.SetActive(true);
+        playerName.gameObject.SetActive(true);
+        mainMenu.gameObject.SetActive(false);
+        about.gameObject.SetActive(false);
         SFXVolume();
-        MusicVolume();
-        //actual scene is not start scene -> fix for develop, any scene can be run at start        
-        MenuActive(SceneManager.GetActiveScene().buildIndex == 0);        
+        MusicVolume();        
     }
     public void PlayGame()
-    {        
-        bool isInMainMenu = SceneManager.GetActiveScene().buildIndex == 0;        
-        MenuActive(isInMainMenu);
-        if(isInMainMenu) SceneManager.LoadScene(1);
+    {
+        ShowLeaderboardGui();
+        SceneManager.LoadScene(1);
     }
-
-    private void MenuActive(bool enable)
-    {        
-        gameObject.SetActive(enable);
-        background.SetActive(enable);
+    public void ShowLeaderboardGui()
+    {
+        leaderboard.gameObject.SetActive(true);
+        playerName.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
+        about.gameObject.SetActive(false);
+        background.gameObject.SetActive(false);
     }
+    
     
     public void AudioToggle()
     {
@@ -70,5 +78,20 @@ public class GUIMainMenu : MonoBehaviour
     public void SFXClick()
     {
         SFXController.Instance.PlaySound(clickSound);
+    }    
+    
+    public void GoToMainMenu()
+    {
+        leaderboard.gameObject.SetActive(false);
+        playerName.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
+        about.gameObject.SetActive(false);
+    }
+    public void GoToAbout()
+    {
+        leaderboard.gameObject.SetActive(false);
+        playerName.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
+        about.gameObject.SetActive(true);
     }
 }

@@ -6,14 +6,70 @@ using TMPro;
 
 public class Leaderboard : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI playerNames;
-    [SerializeField] TextMeshProUGUI playerScores;
+    public static Leaderboard Instance;
+    void Awake()
+    {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        Instance = this;
+        DontDestroyOnLoad(gameObject);        
+    }
+    [SerializeField] TMP_InputField playerNameInputField;
+    [SerializeField] LeaderboardGUI gui;
+    [SerializeField] int maxShowedScores = 6;
     string leaderboardID = "11534";
     // Start is called before the first frame update
-    void Start()
+        void Start()
     {
+        StartCoroutine(SetupRoutine());
+    }
+
+    public void SetPlayerName()
+    {
+        LootLockerSDKManager.SetPlayerName(playerNameInputField.text, (response) =>
+        {
+            if(response.success)
+            {
+                Debug.Log("Succesfully set player name");
+            }
+            else
+            {
+                Debug.Log("Could not set player name" + response.Error);
+            }
+        });
+    }
+    
+    IEnumerator SetupRoutine()
+    {
+        yield return LoginRoutine();
+        yield return FetchTopHighscoresRoutine();
+    }
+
+    IEnumerator LoginRoutine()
+    {
+        bool done = false;
+        LootLockerSDKManager.StartGuestSession(
+            (response) =>
+            {
+                if(response.success)
+                {
+                    Debug.Log("Player was logged in");
+                    PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
+                    done = true;
+                }
+                else
+                {
+                    Debug.Log("Could not start session");
+                    done = true;
+                }
+            }
+        );
         
+        yield return new WaitWhile(() => done == false);
     }
 
     public IEnumerator SubmitScoreRoutine(int scoreToUpload)
@@ -44,13 +100,21 @@ public class Leaderboard : MonoBehaviour
         {
             if(response.success)
             {
-                string tempPlayerNames = "Names\n";
-                string tempPlayerScores = "Scores\n";
+                //string tempPlayerNames = "Names\n";
+                //string tempPlayerScores = "Scores\n";
 
                 LootLockerLeaderboardMember[] members = response.items;
-
-                for(int i = 0; i < members.Length; i++)
+                List<LeaderboardDataGUI> leaderboardDatas = new();
+                int size = Mathf.Min(members.Length, maxShowedScores);
+                for(int i = 0; i < size; i++)
                 {
+                    LeaderboardDataGUI leaderboardData = new LeaderboardDataGUI(
+                            members[i].rank.ToString(),
+                            members[i].player.name != "" ? members[i].player.name : members[i].player.id.ToString(),
+                            members[i].score.ToString()
+                            );
+                    leaderboardDatas.Add(leaderboardData);
+                    /*
                     tempPlayerNames += members[i].rank + ". ";
                     if(members[i].player.name != "")
                     {
@@ -63,10 +127,13 @@ public class Leaderboard : MonoBehaviour
 
                     tempPlayerScores += members[i].score + "\n";
                     tempPlayerNames += "\n";
+                    */
                 }
+                gui.Clear();
+                gui.ShowEntrys(leaderboardDatas);
                 done = true;
-                playerNames.text = tempPlayerNames;
-                playerScores.text = tempPlayerScores;
+                //playerNames.text = tempPlayerNames;
+                //playerScores.text = tempPlayerScores;
             }
             else
             {
@@ -76,5 +143,10 @@ public class Leaderboard : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == false);
+    }
+
+    public void ShowLeaderboard()
+    {
+        StartCoroutine(FetchTopHighscoresRoutine());
     }
 }

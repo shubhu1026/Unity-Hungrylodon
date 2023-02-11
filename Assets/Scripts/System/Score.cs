@@ -43,6 +43,7 @@ public class Score : MonoBehaviour
         _score += _bonusMultiplier * scoreValue;
         AddBonusMultiplier();
         UpdateGUI();
+        Debug.Log("score increased " + _score);
     }
 
     private void Reset() {
@@ -66,5 +67,9 @@ public class Score : MonoBehaviour
         _bonusCounter = _counterResetTime;
         _bonusMultiplier = Mathf.Min(_bonusMultiplier + 0.1f, 2f);
         _textMeshProMultiplier.text = _bonusMultiplier.ToString();
+    }
+    public int GetScore()
+    {
+        return (int)_score;
     }
 }

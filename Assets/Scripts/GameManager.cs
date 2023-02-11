@@ -7,8 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float spawnInterval = 0.5f;
-    [SerializeField] int maxFishToBeSpawned = 50;
+    [SerializeField] float spawnInterval = 0.5f;    
+    
     public Action OnGameReset;
     public bool isGameActive = false;
     public int spawnedFishCount = 0; 
@@ -62,18 +62,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        /*
         if (spawnedFishCount >= maxFishToBeSpawned)
         {
             GameOver();
         }
+        */
     }
     
-    void GameOver()
+    public void GameOver()
     {
+        Debug.Log("end game");
         isGameActive = false;
+        CanvasController canvasController = FindObjectOfType<CanvasController>();
+        
+        StartCoroutine(EndGamecoroutine(canvasController.ShowLeaderboardGui));
+
+        //FindObjectOfType<CanvasController>().ShowLeaderboardGui();
         // RestartGame();
     }
-
+    IEnumerator EndGamecoroutine(Action endAction)
+    {
+        yield return FindObjectOfType<Leaderboard>().SubmitScoreRoutine(FindObjectOfType<Score>().GetScore());
+        yield return FindObjectOfType<Leaderboard>().FetchTopHighscoresRoutine();
+        endAction();
+    }
     void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

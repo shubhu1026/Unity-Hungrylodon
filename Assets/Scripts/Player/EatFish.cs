@@ -6,10 +6,10 @@ using UnityEngine;
 public class EatFish : MonoBehaviour
 {
     [SerializeField]private AudioClip[] eatSounds;
-    private Score score;
-    private void Start()
+    
+    private void OnEnable()
     {
-        score = FindObjectOfType<Score>();
+        
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -46,7 +46,7 @@ public class EatFish : MonoBehaviour
     //add the point value to the score
     private void AddToScore(OtherFish enemyFish)
     {
-        
-        score.AddScore(enemyFish.PointValue);
+        Debug.Log("eating fish");
+        FindObjectOfType<Score>().AddScore(enemyFish.PointValue);
     }
 }

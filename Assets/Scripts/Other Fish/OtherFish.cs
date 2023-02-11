@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class OtherFish : MonoBehaviour
 {
     //fish size can be multiples of 10
+    public Action OnDeath;
     [SerializeField] float baseFishSize = 10f;
     [SerializeField] float basePointValue = 10f;
     [SerializeField] float moveSpeed = 10f;
@@ -30,15 +32,15 @@ public class OtherFish : MonoBehaviour
     void SetFishScale()
     {
         //Add randomness to fish scale
-        if(Random.value < 0.5)
+        if(UnityEngine.Random.value < 0.5)
         {
-            fishSize = baseFishSize + Random.Range(0f, 1f) * 10;
+            fishSize = baseFishSize + UnityEngine.Random.Range(0f, 1f) * 10;
             float newScale = transform.localScale.y + fishSize/100;
             transform.localScale = new Vector3(newScale, newScale, newScale);
         }
         else
         {
-            fishSize = baseFishSize - Random.Range(0f, 1f) * 10;
+            fishSize = baseFishSize - UnityEngine.Random.Range(0f, 1f) * 10;
             float newScale = transform.localScale.y + fishSize/100;
             transform.localScale = new Vector3(newScale, newScale, newScale);
         }
@@ -122,5 +124,9 @@ public class OtherFish : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
+        
+    }
+    private void OnDestroy() {
+        OnDeath?.Invoke();
     }
 }
