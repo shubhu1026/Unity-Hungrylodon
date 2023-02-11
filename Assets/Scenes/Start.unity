@@ -843,7 +843,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[0]
@@ -856,11 +856,11 @@ PrefabInstance:
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 4457b90c05e5821438eef7d16c8c1a9e, type: 3}
+      objectReference: {fileID: 8300000, guid: 49d723abd2009794790d78e18fc85019, type: 3}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: 49d723abd2009794790d78e18fc85019, type: 3}
+      objectReference: {fileID: 8300000, guid: 5982ef97d573faa468657d83c99715d8, type: 3}
     - target: {fileID: 1444320709835759144, guid: 26072a419a2d6aa498653ed839ca6d5e, type: 3}
       propertyPath: musicTracks.Array.data[4]
       value: 
