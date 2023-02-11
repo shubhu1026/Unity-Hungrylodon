@@ -29,6 +29,7 @@ public class MusicController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SystemSetup.Instance.OnMusicVolumeChanged += SetMusicVolume;
         SystemSetup.Instance.OnAudioActiveChange += SetAudio;
+        SystemSetup.Instance.SetMusicVolume(0.2f);
     }
     private void Update()
     {

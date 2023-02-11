@@ -120,10 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupTime: 5
-  pickSounds:
-  - {fileID: 8300000, guid: 5f2f69f43e49d3f419f81abb9f7e5295, type: 3}
-  - {fileID: 8300000, guid: cf8d8faccb48bde408571c8429c3634a, type: 3}
-  - {fileID: 8300000, guid: 1b72b0356102cd04ebef0c6716f8d9b2, type: 3}
+  pickSound: {fileID: 8300000, guid: f5d3429145ae988429c1569b129d5d10, type: 3}
 --- !u!114 &2641966437271141884
 MonoBehaviour:
   m_ObjectHideFlags: 0
