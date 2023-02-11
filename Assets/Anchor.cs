@@ -23,6 +23,7 @@ public class Anchor : MonoBehaviour
         { 
             GetComponent<Rigidbody2D>().WakeUp(); 
             isActive = false;
+            Destroy(gameObject, 5f);
         }
         else
         {

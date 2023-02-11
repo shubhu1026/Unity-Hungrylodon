@@ -14,10 +14,10 @@ public class GUIPowerup : MonoBehaviour
 
     public void SetPowerupCounter(float time)
     {
-        MusicController.Instance.SetMute(true);
+        //MusicController.Instance.SetMute(true);
         audioSource.Stop();
         audioSource.volume = SystemSetup.Instance.MusicVolume;
-        audioSource.PlayOneShot(powerclip);
+        //audioSource.PlayOneShot(powerclip);
         _isActive = true;
         _totalTime = time;
         _currentTime = _totalTime;
