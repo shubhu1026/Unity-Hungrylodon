@@ -47,6 +47,6 @@ public class EatFish : MonoBehaviour
     private void AddToScore(OtherFish enemyFish)
     {
         Debug.Log("eating fish");
-        FindObjectOfType<Score>().AddScore(enemyFish.PointValue);
+        FindObjectOfType<Score>().AddScore(enemyFish.PointValue/100);
     }
 }
