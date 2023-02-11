@@ -45,6 +45,7 @@ public class Mine : MonoBehaviour
             GetComponent<Rigidbody2D>().WakeUp();
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * speedPower, ForceMode2D.Impulse);
             isActive = false;
+            Destroy(gameObject, 5f);
         }
         else
         {
