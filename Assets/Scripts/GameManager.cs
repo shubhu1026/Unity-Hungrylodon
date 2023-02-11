@@ -111,7 +111,10 @@ public class GameManager : MonoBehaviour
         playerMovement.transform.position = Vector3.zero;
         playerMovement.transform.localScale = new Vector3(-1, 1, 1);
         FindObjectOfType<CanvasController>().ResetGame();
-        Destroy(FindObjectOfType<Anchors>().gameObject);
+        if(FindObjectOfType<Anchors>())
+        {
+            Destroy(FindObjectOfType<Anchors>().gameObject);
+        }
         Instantiate(anchors);
         StartGame();        
     }
