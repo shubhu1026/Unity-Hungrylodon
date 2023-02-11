@@ -105,6 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupTime: 0
+  pickSounds:
+  - {fileID: 8300000, guid: ea22f3d579b49a74d9e995d8dd01dc70, type: 3}
+  - {fileID: 8300000, guid: dc599c2659b8dd7429dc7999a1a5a83c, type: 3}
+  - {fileID: 8300000, guid: 5b71e9d0e2d864846acd023d8b815f62, type: 3}
   fishPrefab: {fileID: 7431515543192267128, guid: 73c12c6ad5045e14396509807ddb7756, type: 3}
 --- !u!58 &852352583022895515
 CircleCollider2D:

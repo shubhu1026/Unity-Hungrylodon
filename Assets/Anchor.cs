@@ -8,6 +8,7 @@ public class Anchor : MonoBehaviour
     float timeToDrop;
     bool isActive = true;
     bool isUsed = false;
+    [SerializeField] AudioClip[] hits;
     void Start()
     {
         GetComponent<Rigidbody2D>().Sleep();
@@ -37,6 +38,7 @@ public class Anchor : MonoBehaviour
         Debug.Log("anchor hit! new scale is: " + newScale);
         other.transform.localScale = new Vector3(sign > 0 ? newScale : -newScale, newScale, newScale);
         other.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * 10000, ForceMode2D.Impulse);
+        SFXController.Instance.PlaySound(hits[Random.Range(0, hits.Length)]);
         isUsed = true;
     }
     

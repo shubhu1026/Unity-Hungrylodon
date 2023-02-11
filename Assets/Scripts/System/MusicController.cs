@@ -7,6 +7,7 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] AudioClip[] musicTracks;
     [SerializeField] AudioSource audioSource;
+    
     public static MusicController Instance;
     
     private void Awake() {
@@ -19,6 +20,7 @@ public class MusicController : MonoBehaviour
         Destroy(gameObject);
         return;        
     }
+    
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
