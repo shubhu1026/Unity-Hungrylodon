@@ -11,6 +11,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] GameObject playerName;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject about;
+    [SerializeField] GameObject help;
     [SerializeField] GameObject background;
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject resetButton;
@@ -83,6 +84,7 @@ public class CanvasController : MonoBehaviour
     {
         bool enabled = SystemSetup.Instance.isAudioEnabled;
         SystemSetup.Instance.ChangeAudioEnabled(!enabled);
+        
         //change sprite        
         audioButtonImage.sprite = enabled ? disabledAudio : enabledAudio;
     }
@@ -122,6 +124,13 @@ public class CanvasController : MonoBehaviour
         mainMenu.gameObject.SetActive(false);
         about.gameObject.SetActive(true);
     }
-
+    public void GoToHelp()
+    {
+        leaderboard.gameObject.SetActive(false);
+        playerName.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
+        about.gameObject.SetActive(false);
+        help.SetActive(true);
+    }
     
 }

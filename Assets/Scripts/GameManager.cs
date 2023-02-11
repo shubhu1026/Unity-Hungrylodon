@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {        
         isGameActive = true;
-        ResetVariables();
+        ResetVariables();        
     }
 
     void ResetVariables()

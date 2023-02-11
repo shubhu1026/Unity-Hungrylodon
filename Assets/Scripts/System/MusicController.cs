@@ -22,7 +22,7 @@ public class MusicController : MonoBehaviour
     }
     public void SetMute(bool muted)
     {
-        audioSource.volume = muted ? 0 : SystemSetup.Instance.SFXVolume;
+        audioSource.volume = muted ? 0 : SystemSetup.Instance.MusicVolume;
     }
     private void Start()
     {
@@ -42,7 +42,7 @@ public class MusicController : MonoBehaviour
     private void PlayRandomTrack()
     {
         int rnd = UnityEngine.Random.Range(0, musicTracks.Length);
-        audioSource.volume = SystemSetup.Instance.SFXVolume;
+        audioSource.volume = SystemSetup.Instance.MusicVolume;
         audioSource.PlayOneShot(musicTracks[rnd]);
     }
     private void SetMusicVolume(float volume)

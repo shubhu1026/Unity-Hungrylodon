@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3931064477377015740}
   - component: {fileID: 3860875413779727821}
   - component: {fileID: 8189582493768890148}
-  m_Layer: 0
+  - component: {fileID: 1965761388}
+  m_Layer: 10
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea5b7222c474dc4fbf531a74d2c2116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedPower: 20
+  hits: []
 --- !u!58 &8189582493768890148
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -62,6 +65,27 @@ CircleCollider2D:
   m_Offset: {x: 0.013506293, y: -0.037142277}
   serializedVersion: 2
   m_Radius: 1.063885
+--- !u!50 &1965761388
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639750259045007082}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6265152675187204887
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4332269680391238626}
   - component: {fileID: 7963945882679713737}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
