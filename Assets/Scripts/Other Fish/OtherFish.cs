@@ -48,7 +48,7 @@ public class OtherFish : MonoBehaviour
 
     void SetPointValue()
     {
-        pointValue = basePointValue + fishSize; 
+        pointValue = basePointValue * 1000 + fishSize; 
     }
 
     void GetMoveDirection()

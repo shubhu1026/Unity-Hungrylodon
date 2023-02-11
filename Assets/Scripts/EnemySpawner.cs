@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     float xMinRange = 24f;
     float xMaxRange = 32f;
     float yRange = 9f;
-    int SpawnedFishCount;
+    int TotalSpawnedFishCount;
     int currentFishCount;
 
     Vector2 spawnPosition;
@@ -20,11 +20,16 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnFish());
+        GameManager.gameInstance.OnGameReset += () =>
+        {
+            TotalSpawnedFishCount = 0;
+            StartCoroutine(SpawnFish());
+        };
     }
 
     IEnumerator SpawnFish()
     {
-        while (SpawnedFishCount < maxFishToBeSpawned)
+        while (TotalSpawnedFishCount < maxFishToBeSpawned)
         {
             while(currentFishCount < maxFishAllowed)
             {
@@ -37,9 +42,13 @@ public class EnemySpawner : MonoBehaviour
                 }
             );
         }
-        
+        yield return new WaitUntil(() =>
+                {
+                    return currentFishCount == 0;
+                }
+            );
+        yield return new WaitForSeconds(1f);
 
-        
         GameManager.gameInstance.GameOver();
     }
     private void FishDead()
@@ -52,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
         spawnPosition = GetSpawnPosition(fishPrefab);
         if (spawnPosition != Vector2.zero)
         {
-            SpawnedFishCount++;
+            TotalSpawnedFishCount++;
             currentFishCount++;
             GameObject currentFish = Instantiate(fishPrefab, spawnPosition, fishPrefab.transform.rotation);
             currentFish.GetComponent<OtherFish>().OnDeath += FishDead;

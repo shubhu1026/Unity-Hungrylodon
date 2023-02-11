@@ -21,6 +21,7 @@ public class Leaderboard : MonoBehaviour
     [SerializeField] TMP_InputField playerNameInputField;
     [SerializeField] LeaderboardGUI gui;
     [SerializeField] int maxShowedScores = 6;
+    string playerName;
     string leaderboardID = "11534";
     // Start is called before the first frame update
         void Start()
@@ -30,19 +31,11 @@ public class Leaderboard : MonoBehaviour
 
     public void SetPlayerName()
     {
-        LootLockerSDKManager.SetPlayerName(playerNameInputField.text, (response) =>
-        {
-            if(response.success)
-            {
-                Debug.Log("Succesfully set player name");
-            }
-            else
-            {
-                Debug.Log("Could not set player name" + response.Error);
-            }
-        });
-    }
-    
+        string tempText = playerNameInputField.text;
+        if(tempText.Length < 11) playerName = tempText;
+        else playerName = tempText.Substring(0, 10);
+        
+    }    
     IEnumerator SetupRoutine()
     {
         yield return LoginRoutine();
@@ -74,8 +67,46 @@ public class Leaderboard : MonoBehaviour
 
     public IEnumerator SubmitScoreRoutine(int scoreToUpload)
     {
-        bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");
+        bool scoreCheck = false;
+        bool isBetterScore = false;
+        LootLockerSDKManager.GetMemberRank(leaderboardID, playerID, (response) =>
+        {
+            if (response.statusCode == 200) {
+                Debug.Log("Successful");
+                if (response.score > scoreToUpload)
+                {
+                    Debug.Log("score is not better");
+                    scoreCheck = true;
+                    return;
+                }
+                else
+                {
+                    scoreCheck = true;
+                    isBetterScore = true;
+                }
+            } else {
+                Debug.Log("failed: " + response.Error);
+            }
+        });
+        yield return new WaitWhile(() => !scoreCheck);
+        if(!isBetterScore) yield break;
+        bool setName = false;
+        LootLockerSDKManager.SetPlayerName(playerName, (response) =>
+        {
+            if(response.success)
+            {
+                setName = true;
+                Debug.Log("Succesfully set player name");
+            }
+            else
+            {
+                Debug.Log("Could not set player name" + response.Error);
+                setName = true;
+            }
+        });
+        yield return new WaitWhile(() => setName == false);
+        bool done = false;        
         LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderboardID, (response) =>
             {
                 if(response.success)
@@ -149,4 +180,13 @@ public class Leaderboard : MonoBehaviour
     {
         StartCoroutine(FetchTopHighscoresRoutine());
     }
+    public void ShowActualScore()
+    {
+        LeaderboardDataGUI leaderboardDataGUI = new LeaderboardDataGUI(
+            "",
+            playerName,
+            FindObjectOfType<Score>().GetScore().ToString()
+        );
+        gui.ShowActualScore(leaderboardDataGUI);
+    } 
 }

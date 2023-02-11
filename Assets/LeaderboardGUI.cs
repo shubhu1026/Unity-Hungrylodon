@@ -6,6 +6,10 @@ public class LeaderboardGUI : MonoBehaviour
 {
     [SerializeField] GameObject linePrefab;
     [SerializeField] GameObject parentForLines;
+    [SerializeField] GameObject endGameScore;
+    private void Start() {
+        endGameScore.SetActive(false);
+    }
     public void Clear()
     {
         for (int i = parentForLines.transform.childCount - 1; i >= 0 ; i--)
@@ -20,6 +24,16 @@ public class LeaderboardGUI : MonoBehaviour
             GameObject lineEntry = Instantiate(linePrefab, parentForLines.transform);
             lineEntry.GetComponent<LeaderboardLinePrefab>().Init(data);
         }
+    }
+    public void ShowActualScore(LeaderboardDataGUI leaderboardData)
+    {
+        endGameScore.SetActive(true);
+        endGameScore.GetComponent<LeaderboardLinePrefab>().Init(leaderboardData);        
+    }
+    public void ResetGame()
+    {
+        endGameScore.SetActive(false);
+        FindObjectOfType<GameManager>().RestartGame();
     }
 }
 public struct LeaderboardDataGUI
